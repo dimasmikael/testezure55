@@ -45,7 +45,7 @@ stages:
     - task: CopyFiles@2
       displayName: "Copy app to staging directory"
       inputs:
-        sourceFolder: '$(Agent.BuildDirectory)'
+        sourceFolder: '$(Agent.BuildDirectoy)'
         contents: '**/bundle/**'
         targetFolder: '$(Build.StagingDirectory)'
         flattenFolders: true
@@ -58,11 +58,6 @@ stages:
         publishLocation: 'Container'
 
     # replace "ios_Profile.mobileprovision" with your secure file name
-    - task: InstallAppleProvisioningProfile@1
-      displayName: Install provisioning file
-      inputs:
-        provisioningProfileLocation: 'secureFiles'
-        provProfileSecureFile: 'ios_Profile.mobileprovision'
         
     - task: FlutterInstall@0
       displayName: "Install Flutter SDK"
