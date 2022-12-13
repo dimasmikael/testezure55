@@ -100,4 +100,9 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'IPA'
         publishLocation: 'Container'
-        
+
+    - task: FlutterTest@0
+      displayName: "Run unit tests"
+      inputs:
+        generateCodeCoverageReport: true
+        projectDirectory: '$(Build.SourcesDirectory)'
